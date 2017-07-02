@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'NewsFeverApp',
+	'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -122,5 +123,7 @@ STATIC_URL = '/static/'
 
 
 CRONJOBS = [
+	#('*/5 * * * *', 'NewsFeverApp.dailyFeed.test_trail', '/home/swetha_naraharisetty/Documents/DjangoProjects/Newspedia/cronLog.log')
+
 	('0 0 * * *', 'NewsFeverApp.dailyFeed.cricNews')
 ]
