@@ -12,4 +12,5 @@ def story(request):
     for index in news:
         news = index
         break
-    return render(request,'NewsFeverApp/stories.html', {'news':news})
+    return render(request,'NewsFeverApp/home.html', {'news':news})
+
