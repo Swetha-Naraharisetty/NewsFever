@@ -48,11 +48,12 @@ class News(models.Model):
 	image_url = models.CharField(max_length = 100)
 	more_info = models.CharField(max_length = 200)
 	public = models.IntegerField(default = 1)
-	published_date = models.DateTimeField(null = True,blank = True,default = timezone.now)
+	published_date = models.DateTimeField(null = True,default = timezone.now)
 	category = models.ForeignKey(Categories, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return self.story
+		return self.author_id
+
 class Favourite(models.Model):
 	user = models.ForeignKey(User, on_delete = models.CASCADE)
 	story_id = models.ForeignKey(News, on_delete = models.CASCADE)  

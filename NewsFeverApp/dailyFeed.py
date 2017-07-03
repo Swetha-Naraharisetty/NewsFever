@@ -26,29 +26,27 @@ def getSource(sourceVal):
 	mapp.save()
 
 """
-#Category = [Spo]
 
-def cricNews():
-	url = "https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=top&apiKey=70ecac24214846759b5ca1eb23c25329"
+
+def cricNews(source, category):
+	url = "https://newsapi.org/v1/articles?source=" +source+ "&sortBy=top&apiKey=70ecac24214846759b5ca1eb23c25329"
 	req = urllib.request.Request(url)
 	res = urllib.request.urlopen(req)
 	news_res = res.read().decode('utf-8')
 	news_dict = json.loads(news_res)
 	news_keys = news_dict.keys()
-	#source = Publisher(p_id ='P0001',p_name = news_dict['source'])
-	#source.save()
 	articles = news_dict['articles']
 	num_of_stories = len(articles)
 	story_keys = articles[0].keys()
 	auth = Author.objects.all()
 	authLen = len(auth)
-	for i in range(1, num_of_stories):
+	for i in range(0, num_of_stories):
 		key = 'A'
 		j = '{0:04d}'.format(authLen + i)
 		key += str(j)
 		author = Author(a_id = key,a_name =articles[i]['author']  )
 		author.save()
-		news = News(author_id = author, publisher_id = getSource(news_dict['source']),title = articles[i]['title'], story = articles[i]['description'], image_url = articles[i]['urlToImage'], more_info = articles[i]['url'], public = 1, published_date = articles[i]['publishedAt'], category = getCategory('Sports'))
+		news = News(author_id = author, publisher_id = getSource(news_dict['source']),title = articles[i]['title'], story = articles[i]['description'], image_url = articles[i]['urlToImage'], more_info = articles[i]['url'], public = 1, published_date = articles[i]['publishedAt'], category = getCategory(category))
 		news.save()
 
 

@@ -127,3 +127,10 @@ CRONJOBS = [
 
 	('0 0 * * *', 'NewsFeverApp.dailyFeed.cricNews')
 ]
+'django.template.loaders.filesystem.Loader',                 
+'django.template.loaders.app_directories.Loader'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
