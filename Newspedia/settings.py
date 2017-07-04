@@ -123,9 +123,9 @@ STATIC_URL = '/static/'
 
 
 CRONJOBS = [
-	#('*/5 * * * *', 'NewsFeverApp.dailyFeed.test_trail', '/home/swetha_naraharisetty/Documents/DjangoProjects/Newspedia/cronLog.log')
+	
 
-	('0 0 * * *', 'NewsFeverApp.dailyFeed.cricNews')
+	('0 0 * * *', 'NewsFeverApp.dailyFeed.getNews')
 ]
 'django.template.loaders.filesystem.Loader',                 
 'django.template.loaders.app_directories.Loader'

@@ -8,14 +8,14 @@ class Categories(models.Model):
 	c_id = models.CharField(primary_key = True, max_length = 4)
 	
 	def __str__(self):
-		return self.category 
+		return self.category
 
 class SubCategory(models.Model):
 	category = models.CharField(max_length = 50)
 	s_id = models.CharField(primary_key = True, max_length = 4)
 
 	def __str__(self):
-		return self.category
+		return self.s_id
 
 class Mapping(models.Model):
 	m_id = models.CharField(primary_key = True, max_length = 4)
@@ -23,7 +23,7 @@ class Mapping(models.Model):
 	sub_category = models.ForeignKey(SubCategory, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return self.category
+		return self.m_id
 
 
 class Publisher(models.Model):
@@ -32,13 +32,17 @@ class Publisher(models.Model):
 
 	def __str__(self):
 		return self.p_name
-
+class SourceCategoryMap(models.Model):
+	category = models.ForeignKey(Categories, on_delete = models.CASCADE)
+	source = models.OneToOneField(Publisher, on_delete = models.CASCADE)
+	def __str__(self):
+		return "{0}  {1}".format( self.source, self.category)
 class Author(models.Model):
-	a_id = models.CharField(primary_key = True,max_length = 5)
+	a_id = models.CharField(primary_key = True,max_length = 10)
 	a_name = models.CharField(max_length = 50, null = True ,default = 'Unknown')
 
 	def __str__(self):
-		return self.a_name
+		return self.a_id
 
 class News(models.Model):
 	author_id = models.ForeignKey(Author, on_delete = models.CASCADE)
@@ -52,7 +56,7 @@ class News(models.Model):
 	category = models.ForeignKey(Categories, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return self.author_id
+		return self.story
 
 class Favourite(models.Model):
 	user = models.ForeignKey(User, on_delete = models.CASCADE)
