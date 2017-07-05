@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Categories(models.Model):
 	category = models.CharField(max_length = 50)
@@ -68,8 +69,17 @@ class Profile(models.Model):
 	fname = models.CharField(max_length = 100)
 	mname = models.CharField(max_length = 50, null = True, blank = True, default = None)
 	lname = models.CharField(max_length = 50, null = True, blank = True, default = None)
+	bio = models.TextField(max_length=500, blank=True)
+	location = models.CharField(max_length=30, blank=True)
+	birth_date = models.DateField(null=True, blank=True)
 	is_self_ratting = models.BooleanField(default = False)
 	is_registered = models.BooleanField(default = False)
 	is_pwd_reset = models.BooleanField(default = False) 
+
+	@receiver(post_save, sender=User)
+	def update_user_profile(sender, instance, created, **kwargs):
+		if created:
+			Profile.objects.create(user=instance)
+			instance.profile.save()
 
 	

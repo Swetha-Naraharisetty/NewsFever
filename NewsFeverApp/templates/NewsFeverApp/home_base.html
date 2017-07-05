@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href= "{% static 'css/base.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="jumbotron text-center">
+   <img src= "{% static "FirstProjtApp/images/news_logo.png" %}" class = "pull-left"  height = 2% width = "10%"/>
+   <h1>NewsFever</h1>
+  <button type = "button" class = "btn btn-primary" btn-lg pull-right><b>LOG IN</button>
+  <button type = "button" class = "btn btn-primary" btn-lg pull-right>SIGN UP</b></button>
+
+</div>
+  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp  
+  <div class = "btn-group">
+ 
+    <button class="btn btn-primary  dropdown-toggle" type="button" data-toggle="dropdown">Business
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
+</div>
+   <div class = "btn-group">
+    <button class="btn btn-primary  dropdown-toggle" type="button" data-toggle="dropdown">Education
+   <span class = caret></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+</div>
+   <div class = "btn-group">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Entertainment
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Gaming
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Sports
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Cricket</a></li>
+      <li><a href="#">Football</a></li>
+      <li><a href="#">Hockey</a></li>
+    </ul>
+  </div>
+<div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Politics
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
+

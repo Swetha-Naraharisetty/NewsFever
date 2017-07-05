@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'NewsFeverApp',
-	'django_crontab',
+    'NewsFeverApp',
+    'django_crontab',
+    'django.contrib.admindocs',
+    
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+LOGIN_REDIRECT_URL = '/story'
 CRONJOBS = [
 	
 
