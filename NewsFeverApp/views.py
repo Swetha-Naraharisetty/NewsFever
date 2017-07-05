@@ -38,8 +38,8 @@ def signup(request):
 
 def home(request):
 	newsCategory = getCategory('Gaming')
-
-	return render(request, 'NewsFeverApp/home.html', {'news' : newsCategory})
+	news = News.objects.filter(category = newsCategory)
+	return render(request, 'NewsFeverApp/home.html', {'news' : news})
 		
 
 
