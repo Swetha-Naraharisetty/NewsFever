@@ -43,7 +43,7 @@ class Author(models.Model):
 	a_name = models.CharField(max_length = 50, null = True ,default = 'Unknown')
 
 	def __str__(self):
-		return self.a_id
+		return self.a_name
 
 class News(models.Model):
 	author_id = models.ForeignKey(Author, on_delete = models.CASCADE)
