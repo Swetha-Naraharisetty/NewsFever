@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+import os
+def get_image_path(instance,filename):
+      return os.path.join(' ',filename)
 class Categories(models.Model):
 	category = models.CharField(max_length = 50)
 	c_id = models.CharField(primary_key = True, max_length = 4)
@@ -76,10 +79,19 @@ class Profile(models.Model):
 	is_registered = models.BooleanField(default = False)
 	is_pwd_reset = models.BooleanField(default = False) 
 
-	@receiver(post_save, sender=User)
-	def update_user_profile(sender, instance, created, **kwargs):
-		if created:
-			Profile.objects.create(user=instance)
-			instance.profile.save()
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+	    Profile.objects.create(user=instance)
+    instance.profile.save()
+    
+class Story(models.Model):
+    title = models.CharField(max_length = 255)
+    description = models.CharField(max_length=255,)
+    category = models.CharField(max_length = 255,)
+    image = models.FileField(upload_to = get_image_path, blank = True,null = True)
+    def __str__(self):
+        return self.title
 
 	

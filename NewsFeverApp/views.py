@@ -3,10 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from NewsFeverApp.forms import SignUpForm
+from NewsFeverApp.forms import SignUpForm, CommentForm
 
 # Create your views here.
-from NewsFeverApp.models import Categories, News
+from NewsFeverApp.models import Categories, News, Profile, Story
 from NewsFeverApp.dailyFeed import getCategory
 def index(request):
     category = Categories.objects.all()
@@ -18,7 +18,27 @@ def story(request):
         news = index
         break
     return render(request,'NewsFeverApp/stories.html', {'news':news})
+def preferences(request):
+    news = News.objects.all()
+    title = request.POST.get('current_news.title')
+    for index in news:
+        news = index
+        break
+    context = {'news' : news, 'title' : title}
+    return render(request,'NewsFeverApp/stories.html', context)
 
+def userpost(request):
+    if request.method == 'POST':
+        savenews = CommentForm(request.POST, request.FILES)
+        if savenews.is_valid():
+            savenews.save() 
+            savenew = Story.objects.all( )
+            return render(request,'NewsFeverApp/myprofile.html',{'savenews':savenew})
+    else:
+        form = CommentForm()
+    return render(request, 'NewsFeverApp/userpost.html', {
+        'form': form
+    })
 
 def getStory(request, title):
     print(title)
@@ -42,15 +62,21 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return redirect('NewsFeverApp/home.html')
+            return render(request, 'NewsFeverApp/userprofile.html', {'user' : user})
     else:
         form = SignUpForm()
     return render(request, 'NewsFeverApp/signup.html', {'form': form})
-
+def myprofile(request):
+    details = Story.objects.all()
+    return render(request, 'NewsFeverApp/myprofile.html', {'details' : details})
 def home(request):
     news = News.objects.all()[5:]
     print("Calling home")
     return render(request, 'NewsFeverApp/home.html', {'news' : news})
+def userprofile(request):
+    news = News.objects.all()[5:]
+    print("Calling home")
+    return render(request, 'NewsFeverApp/userprofile.html', {'news' : news})
 def business(request):
     business_news = News.objects.all()
     return render(request, 'NewsFeverApp/business.html', {'business_news' : business_news})
@@ -78,4 +104,6 @@ def scienceandnature(request):
 def technology(request):
     technology_news = News.objects.all()
     return render(request, 'NewsFeverApp/technology.html', {'technology_news' : technology_news})
+#def userpost(request):
+    
     

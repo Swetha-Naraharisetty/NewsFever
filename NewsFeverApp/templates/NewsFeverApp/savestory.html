@@ -1,0 +1,24 @@
+{% extends 'NewsFeverApp/base1.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{% block content %}
+ savenews:
+{% csrf_token %}
+     <center>
+     {{savenews.as_p}}
+       {% for i in savenews %}
+      <tr><td><b>Title:</b>
+                {{i.title}}</br></tr></td>
+       <tr><td><b>Description:</b>
+                {{i.description}}</br></tr></td>
+	   <tr><td><b>Category:</b>
+	            {{i.category }}</br></tr></td>
+	    {% load static %}
+	    <tr><td>Image:<img src = "{% get_media_prefix %}{{i.image}}" height = 200 width = 200><br></tr></td>
+    {% endfor %}
+{% endblock %}
+	

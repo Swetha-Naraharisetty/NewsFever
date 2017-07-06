@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+    	<title>NEWSFEVER</title>
+    	<meta charset = "utf-8">
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	</head>
+	<body>
+		<div class = "jumbroton text-center">
+			<img src= "{% static "NewsFeverApp/images/news_logo.png" %}" class = "pull-left"  height = "50px" width = "150px"/>
+			<center><h1>NEWSFEVER</h1></center>
+			
+		</div>
+		<nav class = "navbar navbar-inverse">
+		    <div class = "container-fluid">
+				<ul class = "nav navbar-nav">
+		      			<li class = "active"><a href = "{% url 'home'%}">HOME</a></li>
+					<li class = "active"><a href = "{% url 'business'%}">BUSINESS</a></li>
+					<li class = "active"><a href = "{% url 'entertainment'%}">ENTERTAINMENT</a></li>
+					<li class = "active"><a href = "{% url 'gaming'%}">GAMING</a></li>
+					<li class = "active"><a href = "{% url 'general'%}">GENERAL</a></li>
+					<li class = "active"><a href = "{% url 'music'%}">MUSIC</a></li>
+					<li class = "active"><a href = "{% url 'politics'%}">POLITICS</a></li>
+					<li class = "active"><a href = "{% url 'sports'%}">SPORTS</a></li>
+					<li class = "active"><a href = "{% url 'science_and_nature'%}">SCIENCE_AND_NATURE</a></li>
+					<li class = "active"><a href = "{% url 'technology'%}">TECHNOLOGY</a></li>
+				</ul>   
+				    
+            <ul class="nav navbar-nav navbar-right">
+				    <li class = "dropdown">
+				        <a class = "dropdown-toggle" data-toggle = "dropdown" href = "#">{{user}}
+				        <span class = "caret"></spam></a>
+				        <ul class = "dropdown-menu">
+				            <li><a href="{% url 'myprofile'%}"><span class="glyphicon glyphicon-user"></span>User Profile</a></li>
+				            <li><a href="{%url 'userpost'%}"><span class="glyphicon glyphicon-plus"></span>Add Story</a></li>
+        			         <li><a href="{% url 'preferences'%}"><span class="glyphicon glyphicon-plus"></span>Add Preferences</a></li>
+        			          <li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+				        </ul>
+				    </li>
+				</ul> 
+			
+		           
+                    
+      		
+			</div>
+		</nav>
+	{% block content %}
+{% endblock %}
+	</body>
+</html>

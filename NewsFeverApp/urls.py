@@ -8,9 +8,11 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     
     url(r'^home/$', views.home, name = 'home'),
-    url(r'^home/login$', views.home, name = 'home'),
-    url(r'^story$', views.story, name = 'story'),
-    #url(r'^userpost$', views.userpost, name = 'userpost'),
+    url(r'^home/login$', views.userprofile, name = 'userprofile'),
+    url(r'^home/logout$', views.home, name = 'home'),
+    url(r'^home/story$', views.story, name = 'story'),
+    url(r'^myprofile$', views.myprofile, name = 'myprofile'),
+    url(r'^userpost$', views.userpost, name = 'userpost'),
     url(r'^signUp/$',views.signup, name='signup'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
@@ -24,6 +26,7 @@ urlpatterns = [
     url(r'^sports/$', views.sports, name='sports'),
     url(r'^science_and_nature/$', views.scienceandnature, name='science_and_nature'),
     url(r'^technology/$', views.technology, name='technology'), 
+    url(r'^preferences$', views.preferences, name = 'preferences'),
     
 ]
 #if settings.DEBUG is True:

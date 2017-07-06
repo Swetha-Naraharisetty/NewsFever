@@ -1,10 +1,10 @@
 {% extends "NewsFeverApp/base.html" %}
 {%block content%}
     
-    
+        {%if news.title == title%}
         <br><br><br>
         <p>
-	<img src = {{news.image_url}} alt="Headshot photo" style="float:left;margin: 0" width = "250px" height = "150px"/>
+	<center><img src = {{news.image_url}} alt="Headshot photo" height = "300px" width = "300px"/></br>
         &nbsp&nbsp<b>Author</b>    : {{news.author_id}}</br>
         &nbsp&nbsp<b>Publisher</b> : {{news.publisher_id}}</br>
 	&nbsp&nbsp<b>Title   </b>  : {{news.title}}</br>
@@ -12,7 +12,8 @@
 	&nbsp&nbsp<b>Category </b> : {{news.category}}</br>
         &nbsp&nbsp<a href  = {{news.more_info}} > More info</br>
         </p>
-	
+	</center>
+	{%endif%}
     
 	
 {%endblock%}

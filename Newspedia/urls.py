@@ -25,3 +25,4 @@ urlpatterns = [
     url(r'^NewsFeverApp/', include('NewsFeverApp.urls')),
     
 ]
+
