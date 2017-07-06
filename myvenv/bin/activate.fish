@@ -32,7 +32,11 @@ end
 # unset irrelavent variables
 deactivate nondestructive
 
+<<<<<<< HEAD
+set -gx VIRTUAL_ENV "/home/tsuser/Documents/DjangoProjects/myvenv"
+=======
 set -gx VIRTUAL_ENV "/home/swetha_naraharisetty/Documents/NewsFever/myvenv"
+>>>>>>> 831f1ef41291ee825fadf8b55e980917425a8595
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
@@ -55,8 +59,13 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
     # with the original prompt function renamed, we can override with our own.
     function fish_prompt
         # Prompt override?
+<<<<<<< HEAD
+        if test -n "(myvenv) "
+            printf "%s%s%s" "(myvenv) " (set_color normal) (_old_fish_prompt)
+=======
         if test -n "$(myvenv) "
             printf "%s%s%s" "$(myvenv) " (set_color normal) (_old_fish_prompt)
+>>>>>>> 831f1ef41291ee825fadf8b55e980917425a8595
             return
         end
         # ...Otherwise, prepend env
