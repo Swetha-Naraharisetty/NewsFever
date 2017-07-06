@@ -20,7 +20,7 @@ def story(request):
     return render(request,'NewsFeverApp/stories.html', {'news':news})
 def preferences(request):
     news = News.objects.all()
-    title = request.POST.get('current_news.title')
+    title = request.POST.get('hi')
     for index in news:
         news = index
         break
