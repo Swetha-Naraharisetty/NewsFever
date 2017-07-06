@@ -48,7 +48,34 @@ def signup(request):
     return render(request, 'NewsFeverApp/signup.html', {'form': form})
 
 def home(request):
-    news = News.objects.all()
+    news = News.objects.all()[5:]
     print("Calling home")
     return render(request, 'NewsFeverApp/home.html', {'news' : news})
+def business(request):
+    business_news = News.objects.all()
+    return render(request, 'NewsFeverApp/business.html', {'business_news' : business_news})
+def entertainment(request):
+    entertainment_news = News.objects.all()
+    return render(request, 'NewsFeverApp/entertainment.html', {'entertainment_news' : entertainment_news})
+def gaming(request):
+    gaming_news = News.objects.all()
+    return render(request, 'NewsFeverApp/gaming.html', {'gaming_news' : gaming_news})
+def general(request):
+    general_news = News.objects.all()
+    return render(request, 'NewsFeverApp/general.html', {'general_news' : general_news})
+def music(request):
+    music_news = News.objects.all()
+    return render(request, 'NewsFeverApp/music.html', {'music_news' : music_news})
+def politics(request):
+    politics_news = News.objects.all()
+    return render(request, 'NewsFeverApp/politics.html', {'politics_news' : politics_news})       
+def sports(request):
+    sports_news = News.objects.all()
+    return render(request, 'NewsFeverApp/sports.html', {'sports_news' : sports_news}) 
+def scienceandnature(request):
+    scienceandnature_news = News.objects.all()
+    return render(request, 'NewsFeverApp/scienceandnature.html', {'scienceandnature_news' : scienceandnature_news})
+def technology(request):
+    technology_news = News.objects.all()
+    return render(request, 'NewsFeverApp/technology.html', {'technology_news' : technology_news})
     

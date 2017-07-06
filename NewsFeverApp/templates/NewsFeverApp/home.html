@@ -3,12 +3,12 @@
     <br><br><br>
        
 <div class="container-fluid">
-          <h1>Sports</h1>
+          <h1>Business</h1>
           <div class="row">
             {% for current_news in news %}
             
-                {% if current_news.category.category == "Gaming" %} 
-            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="{{current_news.title}}">
+                {% if current_news.category.category == "Business" %} 
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="450" height="250" alt="{{current_news.title}}">
             
             <a href = "{% url 'getStory' current_news.id %}">{{current_news.title}}</a>
             </div>
@@ -18,10 +18,10 @@
         </div>
         
         <div class="container-fluid">
-          <h1>Business</h1>
+          <h1>Entertainment</h1>
           <div class="row">
-            {% for current_news in state %}
-            {% if current_news.category.category == "Business" %}
+            {% for current_news in news %}
+            {% if current_news.category.category == "Entertainment" %}
             <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
 <a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
             </div>
@@ -29,6 +29,92 @@
               {% endfor %}
           </div>
         </div>
+        <div class="container-fluid">
+          <h1>Gaming</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Gaming" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+        <div class="container-fluid">
+          <h1>General</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "General" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+        <div class="container-fluid">
+          <h1>Music</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Music" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+         <div class="container-fluid">
+          <h1>Politics</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Politics" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="250" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+         <div class="container-fluid">
+          <h1>Sports</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Sports" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+        <div class="container-fluid">
+          <h1>Science And Nature</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Science-and-Nature" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+        <div class="container-fluid">
+          <h1>Technology</h1>
+          <div class="row">
+            {% for current_news in news %}
+            {% if current_news.category.category == "Technology" %}
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="350" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+
+
 
 
 {% endblock %}

@@ -15,6 +15,15 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^getstory/([0-9]+)$', views.getStory, name='getStory'), 
+    url(r'^business/$', views.business, name='business'), 
+    url(r'^general/$', views.general, name='general'), 
+    url(r'^entertainment/$', views.entertainment, name='entertainment'),
+    url(r'^gaming/$', views.gaming, name='gaming'),
+    url(r'^music/$', views.music, name='music'),
+    url(r'^politics/$', views.politics, name='politics'),
+    url(r'^sports/$', views.sports, name='sports'),
+    url(r'^science_and_nature/$', views.scienceandnature, name='science_and_nature'),
+    url(r'^technology/$', views.technology, name='technology'), 
     
 ]
 #if settings.DEBUG is True:

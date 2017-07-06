@@ -1,0 +1,20 @@
+{% extends "NewsFeverApp/base.html" %}
+ {% block content %}
+    <br><br><br>
+       
+<div class="container-fluid">
+          <h1><center>Technology News</center></h1>
+          <div class="row">
+            {% for current_news in technology_news %}
+                 {% if current_news.category.category == "Technology" %} 
+            <div class="col-sm-4"><img src="{{current_news.image_url}}" width="450" height="250" alt="current_news.title">
+<a href = "http://127.0.0.1:8000/NewsFeverApp/home/story">{{current_news.title}}</a>
+            </div>
+                  {% endif %} 
+              {% endfor %}
+          </div>
+        </div>
+        
+        
+{% endblock %}
+
