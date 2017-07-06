@@ -17,7 +17,7 @@
 		<nav class = "navbar navbar-inverse">
 		    <div class = "container-fluid">
 				<ul class = "nav navbar-nav">
-		      			<li class = "active"><a href = "base.html">HOME</a></li>
+		      			<li class = "active"><a href = "{% url 'home'%}">HOME</a></li>
 					<li class = "active"><a href = "#">BUSINESS</a></li>
 					<li class = "active"><a href = "#">EDUCATION</a></li>
 					<li class = "active"><a href = "#">ENTERTAINMENT</a></li>
@@ -37,8 +37,8 @@
 					</div>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-        			<li><a href="login/"><span class="glyphicon glyphicon-log-in"></span>LogIn</a></li>
-                    <li><a href="signUp/"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
+        			<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span>LogIn</a></li>
+                    <li><a href="{% url 'signup'%}"><span class="glyphicon glyphicon-user"></span> SignUp</a></li>
       			</ul>
 			</div>
 		</nav>

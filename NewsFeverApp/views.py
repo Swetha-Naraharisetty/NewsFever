@@ -20,6 +20,17 @@ def story(request):
     return render(request,'NewsFeverApp/stories.html', {'news':news})
 
 
+def getStory(request, title):
+    print(title)
+    #news_title = title.replace("-"," ")
+    news = News.objects.filter(id = title)
+    for c in news:
+        news = c
+        break
+    return render(request,'NewsFeverApp/stories.html', {'news':news})
+
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -37,11 +48,7 @@ def signup(request):
     return render(request, 'NewsFeverApp/signup.html', {'form': form})
 
 def home(request):
-	newsCategory = getCategory('Gaming')
-	news = News.objects.filter(category = newsCategory)
-	return render(request, 'NewsFeverApp/home.html', {'news' : news})
-		
-
-
-
-
+    news = News.objects.all()
+    print("Calling home")
+    return render(request, 'NewsFeverApp/home.html', {'news' : news})
+    
