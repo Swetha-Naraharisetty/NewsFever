@@ -1,7 +1,7 @@
 {% extends "NewsFeverApp/base.html" %}
 {%block content%}
     
-        {%if news.title == '{{title}}'%}
+        
         <br><br><br>
         <p>
 	<center><img src = {{news.image_url}} alt="Headshot photo" height = "300px" width = "300px"/></br>
@@ -13,7 +13,7 @@
         &nbsp&nbsp<a href  = {{news.more_info}} > More info</br>
         </p>
 	</center>
-	{%endif%}
+	
     
 	
 {%endblock%}

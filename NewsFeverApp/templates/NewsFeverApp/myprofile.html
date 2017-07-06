@@ -9,7 +9,7 @@
 {% csrf_token %}
      <center>
      {{savenews.as_p}}
-       {% for i in savenews %}
+       {% for i in details %}
       <tr><td><b>Title:</b>
                 {{i.title}}</br></tr></td>
        <tr><td><b>Description:</b>
