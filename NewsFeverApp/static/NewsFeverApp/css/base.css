@@ -1,0 +1,29 @@
+.jumbotron h1 {
+
+  color: purple;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+.jumbotron img{
+   height: 2%;
+   width: 3%;
+   }
+  .dropdown-menu {
+    width:250%;
+   }
+ .dropdown-toggle,
+.dropdown-menu {
+  width: 100%;
+  min-width: 10;
+}
+.dropdown-toggle {
+  width: 160%;
+  
+}
+.btn-group {
+  padding: 0px 40px;
+  }
+
+
+
