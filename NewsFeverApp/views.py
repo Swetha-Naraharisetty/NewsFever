@@ -4,35 +4,27 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from NewsFeverApp.forms import SignUpForm, CommentForm
+#from django.contrib.auth.decorators import login
 
 # Create your views here.
-from NewsFeverApp.models import Categories, News, Profile, Story
+from NewsFeverApp.models import Categories, News, Profile, UserStory
 from NewsFeverApp.dailyFeed import getCategory
 def index(request):
     category = Categories.objects.all()
     return render(request, 'NewsFeverApp/categories.html', {'categories': category})
-
+#@login_required
 def story(request):
     news = News.objects.all()
     for index in news:
         news = index
         break
     return render(request,'NewsFeverApp/stories.html', {'news':news})
-def preferences(request):
-    news = News.objects.all()
-    title = request.POST.get('hi')
-    for index in news:
-        news = index
-        break
-    context = {'news' : news, 'title' : title}
-    return render(request,'NewsFeverApp/stories.html', context)
-
 def userpost(request):
     if request.method == 'POST':
         savenews = CommentForm(request.POST, request.FILES)
         if savenews.is_valid():
             savenews.save() 
-            savenew = Story.objects.all( )
+            savenew = UserStory.objects.all( )
             return render(request,'NewsFeverApp/myprofile.html',{'savenews':savenew})
     else:
         form = CommentForm()
@@ -67,16 +59,51 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'NewsFeverApp/signup.html', {'form': form})
 def myprofile(request):
-    details = Story.objects.all()
-    return render(request, 'NewsFeverApp/myprofile.html', {'details' : details})
+    savenews = UserStory.objects.all()
+    return render(request, 'NewsFeverApp/myprofile.html', {'savenews' : savenews})
+def favourite(request):
+    news = Favourite.objects.all()
+    return render(request, 'NewsFeverApp/favourite.html', {'news' : news})
 def home(request):
-    news = News.objects.all()[5:]
-    print("Calling home")
-    return render(request, 'NewsFeverApp/home.html', {'news' : news})
+    business_news = News.objects.filter(category = getCategory('Business'))[:3]
+    entertainment_news = News.objects.filter(category = getCategory('Entertainment'))[:3]
+    gaming_news = News.objects.filter(category = getCategory('Gaming'))[:3]
+    general_news = News.objects.filter(category = getCategory('General'))[:3]
+    music_news = News.objects.filter(category = getCategory('Music'))[:3]
+    politics_news = News.objects.filter(category = getCategory('Politics'))[:3]
+    scienceandnature_news = News.objects.filter(category = getCategory('Science-and-Nature'))[:3]
+    sports_news = News.objects.filter(category = getCategory('Sports'))[:3]
+    technology_news = News.objects.filter(category = getCategory('Technology'))[:3]
+    context = {'business_news' : business_news,
+               'entertainment_news' : entertainment_news,
+               'gaming_news' : gaming_news,
+               'general_news' : general_news,
+               'music_news' : music_news,
+               'politics_news' : politics_news,
+               'scienceandnature_news' : scienceandnature_news,
+               'sports_news' : sports_news,
+               'technology_news' : technology_news}
+    return render(request, 'NewsFeverApp/home.html', context)
 def userprofile(request):
-    news = News.objects.all()[5:]
-    print("Calling home")
-    return render(request, 'NewsFeverApp/userprofile.html', {'news' : news})
+    business_news = News.objects.filter(category = getCategory('Business'))[:3]
+    entertainment_news = News.objects.filter(category = getCategory('Entertainment'))[:3]
+    gaming_news = News.objects.filter(category = getCategory('Gaming'))[:3]
+    general_news = News.objects.filter(category = getCategory('General'))[:3]
+    music_news = News.objects.filter(category = getCategory('Music'))[:3]
+    politics_news = News.objects.filter(category = getCategory('Politics'))[:3]
+    scienceandnature_news = News.objects.filter(category = getCategory('Science-and-Nature'))[:3]
+    sports_news = News.objects.filter(category = getCategory('Sports'))[:3]
+    technology_news = News.objects.filter(category = getCategory('Technology'))[:3]
+    context = {'business_news' : business_news,
+               'entertainment_news' : entertainment_news,
+               'gaming_news' : gaming_news,
+               'general_news' : general_news,
+               'music_news' : music_news,
+               'politics_news' : politics_news,
+               'scienceandnature_news' : scienceandnature_news,
+               'sports_news' : sports_news,
+               'technology_news' : technology_news}
+    return render(request, 'NewsFeverApp/userprofile.html', context)
 def business(request):
     business_news = News.objects.all()
     return render(request, 'NewsFeverApp/business.html', {'business_news' : business_news})

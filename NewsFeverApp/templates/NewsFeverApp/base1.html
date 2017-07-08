@@ -8,6 +8,11 @@
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+    	<style>
+    	    body {
+               background-color: #96a6f2 ;
+            }
+    	</style>
 	</head>
 	<body>
 		<div class = "jumbroton text-center">
@@ -37,7 +42,7 @@
 				        <ul class = "dropdown-menu">
 				            <li><a href="{% url 'myprofile'%}"><span class="glyphicon glyphicon-user"></span>User Profile</a></li>
 				            <li><a href="{%url 'userpost'%}"><span class="glyphicon glyphicon-plus"></span>Add Story</a></li>
-        			         <li><a href="{% url 'preferences'%}"><span class="glyphicon glyphicon-plus"></span>Add Preferences</a></li>
+        			         
         			          <li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 				        </ul>
 				    </li>

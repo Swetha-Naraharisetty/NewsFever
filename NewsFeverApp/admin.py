@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from NewsFeverApp.models import SubCategory ,Categories , Mapping, News, Publisher, Author, Profile,SourceCategoryMap, Favourite
+from NewsFeverApp.models import SubCategory ,Categories , Mapping, News, Publisher, Author, Profile,SourceCategoryMap, Favourite, UserStory
 # Register your models here.
 
 
@@ -15,6 +15,6 @@ admin.site.register(News)
 admin.site.register(Favourite) 
 admin.site.register(Profile)
 admin.site.register(SourceCategoryMap)
-
+admin.site.register(UserStory)
 #@admin.register(mine)
 

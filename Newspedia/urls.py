@@ -18,6 +18,8 @@ from django.contrib import admin
 from NewsFeverApp import views
 #from django.contrib.auth import urls
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,4 +27,7 @@ urlpatterns = [
     url(r'^NewsFeverApp/', include('NewsFeverApp.urls')),
     
 ]
+if settings.DEBUG is True:
+   urlpatterns += static (settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
 

@@ -86,7 +86,7 @@ def update_user_profile(sender, instance, created, **kwargs):
 	    Profile.objects.create(user=instance)
     instance.profile.save()
     
-class Story(models.Model):
+class UserStory(models.Model):
     title = models.CharField(max_length = 255)
     description = models.CharField(max_length=255,)
     category = models.CharField(max_length = 255,)

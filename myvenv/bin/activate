@@ -37,11 +37,6 @@ deactivate () {
 # unset irrelavent variables
 deactivate nondestructive
 
-<<<<<<< HEAD
-VIRTUAL_ENV="/home/tsuser/Documents/DjangoProjects/myvenv"
-=======
-VIRTUAL_ENV="/home/swetha_naraharisetty/Documents/NewsFever/myvenv"
->>>>>>> 831f1ef41291ee825fadf8b55e980917425a8595
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

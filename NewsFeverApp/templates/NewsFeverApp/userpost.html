@@ -10,10 +10,11 @@
 <form method="post" enctype="multipart/form-data">
 <center></br></br></br>
 
-
+    {%load static%}
     {% csrf_token %}
     <table>
             <tr><td> <h1>&nbsp&nbspUser Post Form</h1> </td></tr>
+            <img src = "{% static "NewsFeverApp/images/user.png" %}" height = "300px" width = "300px">
             <tr><td> &nbsp&nbsp{{ form.as_p }} </td></tr>
     <tr>
          <td>
